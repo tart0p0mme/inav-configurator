@@ -99,7 +99,7 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
 
         // generate features
         var features = FC.getFeatures();
-
+        
         var features_e = $('.features');
         for (i = 0; i < features.length; i++) {
             var row_e,
@@ -136,6 +136,44 @@ TABS.configuration.initialize = function (callback, scrollPosition) {
         }
 
         helper.features.updateUI($('.tab-configuration'), BF_CONFIG.features);
+
+        // Beeper
+        var beeper = FC.getBeeper();
+        console.log(beeper);
+        var beeper_e = $('.beeper');
+        for (i = 0; i < beeper.length; i++) {
+            var row_e,
+                tips = [],
+                beeper_tip_html = '';
+ 
+            // row_e = $('<div class="checkbox">' +
+            //     '<input type="checkbox" data-bit="' + beeper[i].bit + '" class="beeper toggle" name="' + beeper[i].name + '" title="' + beeper[i].name + '"' +
+            //     ' id="beeper-' + beeper[i].bit + '" ' +
+            //     '>' +
+            //     '<label for="beeper-' + beeper[i].bit + '">' +
+            //     '<span data-i18n="beeper' + beeper[i].name + '"></span>' +
+            //     '</label>' +
+            //     beeper_tip_html +
+            //     '</div>');
+
+            row_e = $(
+                '<tr class="portConfiguration">' +
+                '    <td class="identifierCell">' +
+                '        <input class="condition toggle" id="1" name="ONUSB" title="ONUSB" type="checkbox" />' +
+                '    </td>' +
+                '    <td class="functionsCell-data">' +
+                '        <span class="xs"><strong>'+beeper[i].name+'</strong></span>' +
+                '    </td>' +
+                '    <td class="functionsCell-telemetry">' +
+                '        <span class="sm-min" data-i18n="beeper' + beeper[i].name + '"></span>' +
+                '    </td>' +
+                '</tr>'
+                );
+
+            beeper_e.each(function () {
+                $(this).after(row_e);
+            });
+        }
 
         // translate to user-selected language
         localize();

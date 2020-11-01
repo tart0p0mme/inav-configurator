@@ -580,6 +580,33 @@ var FC = {
 
         return features.reverse();
     },
+
+    getBeeper: function() {
+        var beeper = [
+            {bit: 1, group: 'other', name: 'ON_USB'},
+            {bit: 2, group: 'other', name: 'RX_LOST'},
+            {bit: 3, group: 'other', name: 'BAT_LOW'},
+            {bit: 4, group: 'other', name: 'BAT_CRIT_LOW'},
+            {bit: 5, group: 'other', name: 'RUNTIME_CALIBRATION'},
+            {bit: 6, group: 'other', name: 'HW_FAILURE'},
+            {bit: 7, group: 'other', name: 'RX_LOST_LANDING'},
+            {bit: 8, group: 'other', name: 'DISARMING'},
+            {bit: 10, group: 'other', name: 'ARMING_GPS_FIX'},
+            {bit: 11, group: 'other', name: 'GPS_STATUS'},
+            {bit: 12, group: 'other', name: 'ACTION_SUCCESS'},
+            {bit: 13, group: 'other', name: 'ACTION_FAIL'},
+            {bit: 14, group: 'other', name: 'READY_BEEP'},
+            {bit: 15, group: 'other', name: 'MULTI_BEEPS'},
+            {bit: 16, group: 'other', name: 'DISARM_REPEAT'},
+            {bit: 17, group: 'other', name: 'ARMED'},
+            {bit: 18, group: 'other', name: 'SYSTEM_INIT'},
+            {bit: 19, group: 'other', name: 'LAUNCH_MODE'},
+            {bit: 20, group: 'other', name: 'CAM_CONNECTION_OPEN'},
+            {bit: 21, group: 'other', name: 'CAM_CONNECTION_CLOSED'},
+        ];
+
+        return beeper.reverse();
+    },
     isFeatureEnabled: function (featureName, features) {
         if (features === undefined) {
             features = this.getFeatures();
